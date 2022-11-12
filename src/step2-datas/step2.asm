@@ -16,8 +16,8 @@ _start:
     mov ebx, 1      ; stdout file descriptor
     mov ecx, msg    ; bytes to write (the start address)
     mov edx, len    ; number of bytes
-    int 0x80        ; interrupt (do some black magic in the cpu <-> hardware components to print)
+    int 0x80        ; run the syscall (do some blackmagic with the hardware)
     ; now do the usual exit code 0 (otherwise we get seg fault)
-    mov eax, 1      
-    mov ebx, 0
-    int 0x80
+    mov eax, 1      ; sys_exit systcall
+    mov ebx, 0      ; exit code
+    int 0x80        ; run the syscall
