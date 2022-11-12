@@ -27,7 +27,7 @@ stack_from_scratch:
     ; To illustrate the fact that the stack
     ; push and pop move the pointer -4, +4 offset
     ; equiv to
-    ; push ('A' << 24 | 'B' << 16 | 'C' << 8 | '\n')
+    ; 0xa << 24 | 67 << 16 | 66 << 8 | 65
     sub esp, 4
     mov [esp], byte 'A'
     mov [esp+1], byte 'B'
