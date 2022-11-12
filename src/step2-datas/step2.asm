@@ -1,5 +1,7 @@
 global _start
 
+; we have 2 SECTIONS (data and text) which captures how the program layout will
+; look like in machine code
 
 ; data section
 ; addr <- "command" raw data 
@@ -9,6 +11,12 @@ section .data
     msg db "Hello, world!", 0x0a
     ; current address - start string address = length 
     len equ $ - msg
+
+    ; other datas types
+    addr0 db 64   ; 1 byte
+    addr1 dw 1003 ; 2 bytes (16 bits)
+    addr2 dd 1000000 ; 4 bytes (32 bits)
+
 
 section .text
 _start:
